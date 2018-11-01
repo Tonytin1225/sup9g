@@ -1,0 +1,362 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>丁浩然第五次作业</title>
+		<style>
+			*{
+				margin: auto;}
+			.all{
+				width: 1000px;
+				height: 900px;
+				padding: 10px;
+			}
+			.top{
+				width: 990px;
+				height: 80px;
+				display: inline-flex;
+				padding: 5px;
+			}
+			.top1{
+				height: 70px;
+				margin-left: 0;
+			}
+			.top2{
+				width:200px;
+				height: 70px;
+				display: inline-flex;
+			}
+			
+			a.sp1:link{
+				width: 50px;
+				height: 70px;
+				display: inline-block;
+				background-image: url(img/xueB.png);
+				background-position: 0px 0px;
+				margin-right: 20px;
+			}
+			a.sp1:hover{
+				background-image: url(img/xueB.png);
+				background-position: 0px -102px;
+			}
+			a.sp2:link{width: 50px;
+				height: 70px;
+				display:inline-block;
+				background-image: url(img/xueB.png);
+				background-position: 0px -188px;
+				background-repeat: no-repeat;
+			}
+			a.sp2:hover{
+				background-image: url(img/xueB.png);
+				background-position: 0px -288px;
+			}
+			.ss{
+				display: inline-block;
+				border-radius: 20px;
+				background-color: #F3F6F8;
+				border:#DFDFDF solid 2px;
+				height: 32px;
+				width: 320px;
+				padding-left: 20px;
+			}
+			.an{
+				display: inline-block;
+				border-radius: 20px;
+				background-color: #1479d7;
+				color: white;
+				height: 39px;
+				border: #1479D7 solid 2px;
+				width: 120px;
+				font-size: 19px;
+				font-family: "microsoft yahei";
+				margin-left: -45px;
+			}
+			.dh{
+				height: 40px;
+				width: 1000px;
+				background-color: #1479d7;
+				font-size: 18px;
+				border-radius: 3px;
+			}
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				width: 980px;
+				background-color: #1479d7;
+				position: relative;
+			}
+			li {
+				float: left;
+			}
+
+			li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 10px 0;
+				text-decoration: none;
+				width: 87px;
+				font-size: 15px;
+				border-radius: 3px;
+			}
+
+			li a:hover {
+				background-color:#CBE1ED;
+			}
+			.adlong{
+				width: 1000px;
+				margin-top: 20px;
+				height: 75px;
+				display: inline-flex;
+				margin-bottom: 15px;
+			}
+			.zw_all{
+				width:1000px;
+				height: 700px;
+				padding: 5px;
+			}
+			.zw_left{
+				width: 310px;
+				height: 680px;
+				padding: 10px;
+				margin-right: 5px;
+				float: left;
+			}
+			.zw_mid{
+				width: 310px;
+				height: 680px;
+				padding: 10px;
+				float: left;
+				margin-right: 5px;
+			}
+			.zw_right{
+				width: 310px;
+				height: 680px;
+				padding: 10px;
+				display: inline-block;
+			}
+			.move{
+				height: 4px;
+				width: 85px;
+				border-top: 4px solid #1479D7;/*只需要将上边显示出来*/
+				position: absolute;
+				left: 0;
+				top: 52px;
+				transition: left .2s ease-in-out 0s;/*包含四个过度属性：执行变换属性、执行时间、速率、延迟*/
+				-webkit-transition: left .2s ease-in-out 0s;/*chrome和safari*/
+				-moz-transition: left .2s ease-in-out 0s;/*firefox*/
+				-o-transition: left .2s ease-in-out 0s;/*opera*/
+			}
+			.a1:link{
+				text-decoration: none;
+			}
+			.a1:hover{
+				color: #0C82FF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="top">
+				<div class="top1"><a href="http://news.xtu.edu.cn/" target="_blank"><img src="img/logo.jpg" /></a></div>
+				<form id="bdfm" target="_blank" name="bdfm" method="get" action="http://www.baidu.com/s">
+					<table>
+						<tr>
+							<td><br /><input type="text" id="search1" name="word" class=ss /></td>
+							<td><br /><input type="submit" value="度娘救我!" class="an" /></td>
+						</tr>
+					</table>
+				</form>
+				<div class="top2">
+					<a class="sp1" href="https://qzone.qq.com/" target="_blank"></a>
+					<a class="sp2" href="https://mail.qq.com" target="_blank"></a>
+					<div style="margin-top: 15px; height:35px;width: 35px;padding-top: 2px; border: aqua solid 1px;color:#60a5e4;background-color: #F5F5F5;text-align: center;">登录</div>
+				</div>
+			</div>
+			<div class="dh">
+				<ul>
+					<li>
+						<a href="#">首页</a>
+					</li>
+					<li>
+						<a href="#">媒体湘大</a>
+					</li>
+					<li>
+						<a href="#">综合新闻</a>
+					</li>
+					<li>
+						<a href="#">教学科研</a>
+					</li>
+					<li>
+						<a href="#">校园生活</a>
+					</li>
+					<li>
+						<a href="#">湘大学人</a>
+					</li>
+					<li>
+						<a href="#">学子风采</a>
+					</li>
+					<li>
+						<a href="#">湘大校友</a>
+					</li>
+					<li>
+						<a href="#">专题新闻</a>
+					</li>
+					<li>
+						<a href="#">视频新闻</a>
+					</li>
+					<li>
+						<a href="#">校报电子版</a>
+					</li>
+				</ul>
+			</div>
+			<div class="adlong">
+				<a href="http://www.xtu.edu.cn/" target="_blank"><img class="img1" src="img/xtdx.jpg" /></a>
+				<img class="img1" src="img/nike.jpg" height="100%"/>
+			</div>
+			<div class="zw_all">
+				<div class="zw_left">
+					<ul>
+						<li><a style="color: black;">
+								<h3>湘大要闻</h3>
+							</a></li>
+						<li class="move"></li>
+					</ul><br />
+					<p style="float: right;">湘潭<img src="img/00.png" height="30px" />19°C </p>
+					<br /><br /><br />
+					<a class="a1" href="#">
+						<h4 style="color: red;">我校思想政治理论课强化“红色”实践教学</h4>
+					</a>
+					<br />
+					<p><img src="img/gb.png" height="200px" /><br />
+						<a class="a1" href="#">
+							<h5>“健全容错纠错机制 激励干部担当作为”专题研讨会在我校召开</h5>
+						</a> </p>
+					<br />
+					<a class="a1" href="#">
+						<h5>校长周益春专题调研碧泉书院建设发展情况</h5>
+					</a>
+					<br />
+					<a class="a1" href="#">
+						<h5>第三十八届学生田径运动会举行</h5>
+					</a>
+					<br />
+					<a class="a1" href="#">
+						<h5>湘潭大学体育发展基金成立 4位校友捐赠第一笔赠款</h5>
+					</a>
+					<br />
+					<a class="a1" href="#">
+						<h5>我校举办基层党建工作实务专题培训</h5>
+					</a>
+					<br />
+					<a class="a1" href="#">
+						<h5>青春无畏 逐梦扬威：“洋光杯”新生定向越野赛举行</h5>
+					</a>
+					<br />
+					<a class="a1" href="#">
+						<h5>省内高校102名辅导员在我校接受法律法规培训</h5>
+					</a>
+					<br />
+					<a class="a1" href="#">
+						<h5>2018级新生班长团支书接受能力素养提升训练</h5>
+					</a>
+					<br />
+					<a class="a1" href="#">
+						<h5>校党委书记黄云清赴泸溪县洗溪镇张家坪村调研指导</h5>
+					</a>
+				</div>
+				<div class="zw_mid">
+					<ul>
+						<li><a style="color: black;">
+								<h3>教学科研</h3>
+							</a></li>
+						<li class="move"></li>
+					</ul>
+					<br /><br /><br />
+					<p><img src="img/ky.jpg" height="200px" /><br />
+						<a class="a1" href="#" style="color: red;">
+							<h4>我校与湖南稀土金属材料研究院达成科研合作意向</h4>
+						</a></p>
+					<br /><a class="a1" href="#">
+						<h5>何朝宇博士在顶尖学术期刊《物理评论快报》上发表最新研究成果</h5>
+					</a>
+					<br /><a class="a1" href="#">
+						<h5>省公共管理学科院长论坛暨高校MPA案例大赛在我校举行</h5>
+					</a>
+					<br /><a class="a1" href="#">
+						<h5>中部六省摩擦学领域专家汇聚湘潭 研讨“机械传动与摩擦学”</h5>
+					</a>
+					<br /><a class="a1" href="#">
+						<h5>《我国农村地区孝道状况分析及振兴对策》产生良好社会反响</h5>
+					</a>
+					<br /><a class="a1" href="#">
+						<h5>我校加入湖南有色金属产业创新联盟</h5>
+					</a>
+					<br /><a class="a1" href="#">
+						<h5>我校承办第十四届全国流变学学术会议</h5>
+					</a>
+					<br /><a class="a1" href="#">
+						<h5>欧阳建权教授获全国高校人工智能大数据教育教学创新奖</h5>
+					</a>
+					<br />
+				</div>
+				<div class="zw_right">
+					<ul style="display: inline-flex;width: 300px;background-color: #F5F8FC;">
+						<li>
+							<a style="color: black;border-bottom: #DFDFDF solid 2px;" href="#">琴湖</a>
+						</li>
+						<li>
+							<a style="color: black;border-bottom: #DFDFDF solid 2px;" href="#">南苑</a>
+						</li>
+						<li>
+							<a style="color: black;border-bottom: #DFDFDF solid 2px;" href="#">金翰林</a>
+						</li>
+					</ul>
+					<ul style="display: inline-flex;width:300px;background-color:#F5F8FC;">
+						<li>
+							<a style="color: black;border-bottom: #DFDFDF solid 2px;" href="#">逸夫楼</a>
+						</li>
+						<li>
+							<a style="color: black;border-bottom: #DFDFDF solid 2px;" href="#">计算中心</a>
+						</li>
+						<li>
+							<a style="color: black;border-bottom: #DFDFDF solid 2px;" href="#">兴湘学院</a>
+						</li>
+					</ul>
+					<ul style="display: inline-flex;width: 300px;background-color: #F5F8FC;">
+						<li>
+							<a style="color: black;" href="#">俱乐部</a>
+						</li>
+						<li>
+							<a style="color: black;font-size: 14px;" href="#">学生活动中心</a>
+						</li>
+						<li>
+							<a style="color: black;" href="#">画眉潭</a>
+						</li>
+					</ul>
+					<ul>
+						<li><a  style="color: black;">
+								<h3>校园生活</h3>
+							</a></li>
+						<li class="move"></li>
+					</ul>
+					<br /><br /><br />
+					
+					<p><img src="img/zrqk.jpg" height="200px"/>
+						<a class="a1" href="#" style="color: red;">
+						<h4>《昨日青空》超前看片会在我校举行</h4>
+					</a></p>
+					<br />
+					<p><img src="img/jx.jpg" height="200px"/>
+						<a class="a1" href="#" style="color: red;">
+						<h4>2018级新生开始军训</h4>
+					</a></p>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
