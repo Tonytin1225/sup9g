@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				font-size: 0;
+			}
+			.all{
+				background-color: red;
+				width: 100%;
+				height: 100%;
+			}
+			input::-moz-placeholder{
+				color: white;
+			}
+			input::-webkit-input-placeholder{
+				color: white;
+			}
+			input::-ms-input-placeholder{
+				color: white;
+			}
+			input:-ms-input-placeholder{
+				color: white;
+			}
+			.ss{
+				background-color: #F3F6F8;
+				border:white solid 2px;
+				height: 32px;
+				width: 300px;
+				padding-left: 20px;
+				margin-top: 50px;
+			}
+			.an{
+				background-color: white;
+				color: red;
+				border: white solid 1px;
+				height: 39px;
+				width: 120px;
+				font-size: 20px;
+				font-weight: bold;
+				font-family: "microsoft yahei";
+				margin: -5px;
+				margin-top: 47px;
+			}
+			.top{
+				margin: 0px auto;
+				width: 98%;
+				height: auto;
+				display: flex;
+				background-color:rgb(241 71 63);
+			}
+			.container{
+				width: 98%;
+				height:auto;
+				margin: 30px auto;
+				background-color: red;
+				display:flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+			}
+			.item a{
+				border: 5px solid white;
+				border-radius: 20px;
+				height:300px;
+				background-color:red;
+				border-radius: 20px;
+				margin: 10px 10px;
+				text-decoration: none;
+				overflow: hidden;
+				padding: 0;
+			}
+			.ad{
+				width: 100%;
+				height: auto;
+				background-color: red;
+				color: white;
+				font-weight: bold;
+				font-size: 40px;
+				text-align: center;
+			}
+			@media(min-width:0px){
+				.item{
+					flex-basis: 75%;
+				}
+			}
+			@media(min-width:480px){
+				.item{
+					flex-basis: 43%;
+				}
+			}
+			@media(min-width:800px){
+				.item{
+					flex-basis: 29%;
+				}
+			}
+			@media(min-width:1080px){
+				.item{
+					flex-basis: 22%;
+				}
+			}
+			.change img{
+				background-size: contain|cover;
+				width: 100%;
+				height: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="top">
+				<img src="img/6_tmalllogo.gif" />
+				<form style=margin: 25px;margin-left: 200px; target=_blank method=get action="https://list.tmall.com/search_product.htm?q=">
+					<table>
+						<tr>
+							<td><br /><input style="background-color: red;color: white;" type="text" name="word" placeholder="搜索 天猫 商品/品牌/店铺"
+								 class=ss /></td>
+							<td><br /><input type="submit" value="搜索" class="an" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<div class="ad">
+				<img src="img/6_celan.png" />买就完事了<img src="img/6_celan.png" />
+			</div>
+			<div class="container">
+				<div class="item">
+					<a style="display:block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_1.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_2.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_3.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_4.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_5.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_6.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_7.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_8.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_9.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_10.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_11.png" width="100%" /></a>
+				</div>
+				<div class="item">
+					<a style="display: inline-block;width: 100%;height: auto;" href="#"><img class="change" src="img/6_12.png" width="100%" /></a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
