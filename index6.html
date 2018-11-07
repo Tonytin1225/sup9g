@@ -78,7 +78,7 @@
 				background-color: red;
 				color: white;
 				font-weight: bold;
-				font-size: 40px;
+				font-size: 5vw;
 				text-align: center;
 			}
 			@media(min-width:0px){
@@ -101,6 +101,14 @@
 					flex-basis: 22%;
 				}
 			}
+			@media(max-width:800px){
+				form{
+					display: none;
+				}
+				.top img{
+					margin: auto;
+				}
+			}
 			.change img{
 				background-size: contain|cover;
 				width: 100%;
@@ -112,7 +120,7 @@
 		<div class="all">
 			<div class="top">
 				<img src="img/6_tmalllogo.gif" />
-				<form style=margin: 25px;margin-left: 200px; target=_blank method=get action="https://list.tmall.com/search_product.htm?q=">
+				<form style=margin: 25px;margin-left: 2000px; target=_blank method=get action="https://list.tmall.com/search_product.htm?q=">
 					<table>
 						<tr>
 							<td><br /><input style="background-color: red;color: white;" type="text" name="word" placeholder="搜索 天猫 商品/品牌/店铺"
