@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+			}
+
+			.div1 {
+				height: auto;
+				min-height: 42px;
+				width: 300px;
+				border: yellow solid 5px;
+				border-radius: 15px;
+				font-size: 2em;
+				overflow: hidden;
+			}
+
+			.div1 a {
+				text-decoration: none;
+			}
+
+			.div2 {
+				position: absolute;
+				right: 50px;
+				top: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			function botton1() {
+				var para = document.createElement("a");
+				var node = document.createTextNode("我是一个新的A元素");
+				para.appendChild(node);
+				para.setAttribute("href", "#");
+				Element = document.getElementById("div1");
+				Element.appendChild(para);
+				para.style.color = "yellow";
+				para.style.display = "block";
+				para.style.backgroundColor = "red";
+			}
+
+			function botton2() {
+				var allp = document.getElementsByTagName("p");
+				while (allp.length - 1 >= 0) {
+					allp[0].remove();
+				}
+			}
+
+			function botton3() {
+				var alla = document.getElementsByTagName("a");
+				while (alla.length - 2 >= 0) {
+					alla[0].remove();
+				}
+			}
+
+			function botton4() {
+				var alldiv1 = document.getElementById("div1");
+				var childs = alldiv1.children;
+				for (var i = childs.length - 1; i >= 0; i--) {
+					childs[i].style.backgroundColor="red";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="div1" id="div1">
+			<p >p1p1p1p1</p>
+			<p >p2p2p2p2</p>
+			<a  href="#">a1a1a1</a>
+			<p >p1p1p1p1</p>
+			<p >p2p2p2p2</p>
+			<a  href="#">a1a1a1</a>
+		</div>
+		<div class="div2"> <button onclick="botton1()">点我添加A元素</button>
+			<button onclick="botton2()">点我删除所有P元素</button>
+			<button onclick="botton3()">点我删除所有A元素</button>
+			<button onclick="botton4()">点我为所有元素设置红色背景色</button>
+			<a href="index7.html"><button>点我恢复初始页面</button></a>
+		</div>
+
+	</body>
+</html>
