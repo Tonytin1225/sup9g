@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			function addRow() {
+				var inputn = document.getElementById("name");
+				var table = document.getElementById("testTble");
+				var rows = table.rows.length;
+				var inputvalue = inputn.value;
+				var radio = document.getElementsByClassName("sex");
+				var selectvalue = null; //  selectvalue为radio中选中的值
+				for (var i = 0; i < radio.length; i++) {
+					if (radio[i].checked == true) {
+						selectvalue = radio[i].value;
+						break;
+					}
+				}
+				if (inputvalue != "" && selectvalue != null) {
+					var newTr = testTble.insertRow(); //添加行
+					var newTd0 = newTr.insertCell();
+					var newTd1 = newTr.insertCell();
+					var newTd2 = newTr.insertCell();
+					var newTd3 = newTr.insertCell(); //添加列
+					newTd0.innerText = rows;
+					newTd1.innerText = inputvalue;
+					newTd2.innerText = selectvalue;
+					newTd3.innerHTML = "<a href='javascript:void(0);' onclick='deleteTable(this);'>删除</a>";
+					newTd1.addEventListener("mouseover", function() {
+						this.style.color = "red";
+					}); 
+					newTd1.addEventListener("mouseleave", function() {
+						this.style.color = "black";
+					}); 
+				} else {
+					alert("请输入完整信息！");
+				}
+			}
+
+			function deleteTable(r) {
+				var i = r.parentNode.parentNode.rowIndex;
+				document.getElementById('testTble').deleteRow(i);
+			}
+
+			function mouseon(obj) {
+				obj.style.color = "red";
+			}
+
+			function mouseoff(obj) {
+				obj.style.color = "black";
+			}
+		</script>
+		<style>
+			*{
+				text-decoration: none;
+			}
+			table tr:nth-child(odd){
+				background-color: #F4F4F4;
+			}
+			table tr:nth-child(even){
+				background-color: #FFF;
+			}
+			table tr:nth-child(1){
+				background-color: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<p align="center" id="info" style="display: inline-flex;margin-left:35%;">
+			姓名 : <input type="text" id="name">
+			性别 : <td><input type="radio" name="sex" class="sex" value="男" checked="checked" />男</td>
+			<td><input type="radio" name="sex" class="sex" value="女" />女</td>
+		</p>
+
+		<div align="center" style="display: inline-flex;"><input type="button" value="添加" onclick="addRow()"></div>
+		<hr>
+		<table align="center" border="1" id="testTble" style="width: 60%;text-align: center;border:1px solid lightgreen">
+			<tr>
+				<td>序号</td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td onmouseover="mouseon(this)" onmouseleave="mouseoff(this)">张三</td>
+				<td>男</td>
+				<td><a href='javascript:void(0);' onclick='deleteTable(this);'>删除</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td onmouseover="mouseon(this)" onmouseleave="mouseoff(this)">李四</td>
+				<td>女</td>
+				<td><a href='javascript:void(0);' onclick='deleteTable(this);'>删除</a></td>
+			</tr>
+		</table>
+		<h2 align="center">P.S.删除后序号不能自动变化是因为我不会了T.T</h2>
+	</body>
+</html>
