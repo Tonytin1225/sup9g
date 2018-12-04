@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>大作业</title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/default.css">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"><!-- font awesome -->
+		<script type="text/javascript" src="js/prefixfree.min.js"></script>
+		<link rel="stylesheet" href="css/reset.css">
+		<style>
+			*{
+				color: antiquewhite;
+			}
+			.dh {
+				height: 50px;
+				width: 960px;
+				background-color: black;
+				font-size: 18px;
+				border-radius: 3px;
+				margin: 50px auto -10px auto;
+			}
+
+			.dh ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				width: 960px;
+				background-color: black;
+				position: relative;
+			}
+
+			.dh li {
+				float: left;
+			}
+
+			.dh li a {
+				display: block;
+				color: antiquewhite;
+				text-align: center;
+				padding: 10px 0;
+				text-decoration: none;
+				width: 320px;
+				font-size: 15px;
+				border-radius: 3px;
+			}
+
+			.dh li a:hover {
+				background-color: #CBE1ED;
+			}
+			.nav ul {
+				list-style-type: none;
+				background: black; border-top: 6px solid hsl(180, 40%, 60%);
+				width: 200px; 
+				list-style: none;
+				position: fixed;
+				left: 5%;
+				top: 20%;
+			}
+			.nav li {
+				list-style-type: none;
+				list-style: none;
+				/*relative positioning for list items along with overflow hidden to contain the overflowing ripple*/
+				position: relative;
+				overflow: hidden;
+			}
+			.nav a {
+ 				color: antiquewhite;
+				display: block; 
+				padding: 10px 0;
+				text-decoration: none;
+				list-style: none;
+				cursor: pointer; /*since the links are dummy without href values*/
+				/*prevent text selection*/
+				user-select: none;
+				/*static positioned elements appear behind absolutely positioned siblings(.ink in this case) hence we will make the links relatively positioned to bring them above .ink*/
+				position: relative;
+			}
+			
+			/*.ink styles - the elements which will create the ripple effect. The size and position of these elements will be set by the JS code. Initially these elements will be scaled down to 0% and later animated to large fading circles on user click.*/
+			.nav .ink {
+				display: block; 
+				position: absolute;
+				background: hsl(180, 40%, 80%);
+				border-radius: 100%;
+				transform: scale(0);
+			}
+			/*animation effect*/
+			.nav .ink.animate {animation: ripple 0.65s linear;}
+			@keyframes ripple {
+				/*scale the element to 250% to safely cover the entire link and fade it out*/
+				100% {opacity: 0; transform: scale(2.5);}
+			}
+			.content{
+				background-color: black;
+				width: 700px;
+				height: auto;
+				margin: 20px auto;
+				border-radius: 10px;
+				text-align: center;
+				padding-top: 15px;
+				padding-bottom: 15px;
+
+			}
+			#footer {
+						position: fixed;
+						bottom: 0;
+						width: 100%;
+						height: 40px;/*脚部的高度*/
+						background:black;
+						clear:both;
+						text-align: center;
+						line-height: 40px;
+					}
+			.case {/* 那六个图片的样例 */
+				display: inline-block;
+				padding-top: 10px;
+			}
+			.case {margin: 0 70px 30px 0;}
+			.case ul {width: 700px;margin: 0 auto;}
+			.case>ul li {display: inline-block;margin-right: 10px;}
+			.case .grid-content {position: relative;overflow: hidden;}
+			.case .grid-content>img {width: 200px;height: 130px;display: inline-block;background: #ccc;}
+			.case .grid-content .grid-shade {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.7);
+				color: #5E5E5E;
+				font-size: 20px;
+				display: none;
+				padding: 20px 0 0 20px;
+			}
+			.case .grid-content .grid-shade .grid-enter {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+			.case .grid-content .grid-shade .grid-enter a {
+			color: #848484;
+			}
+			.case .grid-content .grid-shade .grid-enter>img {width: 28px;vertical-align: top;margin-top: 10px;}
+		</style>
+	</head>
+	<body bgcolor=#2D241F>
+		<div class="dh">
+			<ul>
+				<li>
+					<a href="index10_1.html"><i class="fa fa-home fa-2x">&nbsp;首页</i></a>
+				</li>
+				<li>
+					<a href="index10_2.html"><i class="fa fa-align-justify fa-2x">&nbsp;项目详情</i> </a>
+				</li>
+				<li>
+					<a href="index10_3.html"><i class="fa fa-envelope fa-2x">&nbsp;联系我们</i> </a>
+				</li>
+			</ul>
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a href="#div1"><i class="fa fa-photo fa-1x">&nbsp;产品展示</i></a></li>
+				<li><a href="#div2"><i class="fa fa-empire fa-1x">&nbsp;产品核心</i></a></li>
+				<li><a href="#div3"><i class="fa fa-plus-circle fa-1x">&nbsp;成功案例</i></a></li>
+				<li><a href="#div4"><i class="fa fa-info-circle fa-1x">&nbsp;关于我们</i></a></li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript">
+			//jQuery time
+			$('a[href*=#],area[href*=#]').click(function() { /*锚点滚动特效*/
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+					var $target = $(this.hash);
+					$target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+					if ($target.length) {
+						var targetOffset = $target.offset().top;
+						$('html,body').animate({
+								scrollTop: targetOffset
+							},
+							1000);
+						return false;
+					}
+				}
+			});
+			var parent, ink, d, x, y;/*菜单栏点击特效*/
+			$(".nav ul li a").click(function(e) {
+				parent = $(this).parent();
+				//create .ink element if it doesn't exist
+				if (parent.find(".ink").length == 0)
+					parent.prepend("<span class='ink'></span>");
+
+				ink = parent.find(".ink");
+				//incase of quick double clicks stop the previous animation
+				ink.removeClass("animate");
+
+				//set size of .ink
+				if (!ink.height() && !ink.width()) {
+					//use parent's width or height whichever is larger for the diameter to make a circle which can cover the entire element.
+					d = Math.max(parent.outerWidth(), parent.outerHeight());
+					ink.css({
+						height: d,
+						width: d
+					});
+				}
+
+				//get click coordinates
+				//logic = click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center;
+				x = e.pageX - parent.offset().left - ink.width() / 2;
+				y = e.pageY - parent.offset().top - ink.height() / 2;
+
+				//set the position and add class .animate
+				ink.css({
+					top: y + 'px',
+					left: x + 'px'
+				}).addClass("animate");
+			})
+		</script>
+		<div style="display: inline-block;width: 750px;float: right;">
+			<div id="div1" class="content">
+				<h3>产品展示</h3>
+				<div class="case">
+					<ul>
+						<li>
+							<div class="grid-content">
+								<img src="img/coffee1.jpg" alt="">
+								<div class="grid-shade">
+									<div class="grid-enter">
+										<a href="">浓缩咖啡（Espresso）</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="grid-content">
+								<img src="img/coffee2.jpg" alt="">
+								<div class="grid-shade">
+									<div class="grid-enter">
+										<a href="">美式咖啡（Americano）</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="grid-content">
+								<img src="img/coffee3.jpg" alt="">
+								<div class="grid-shade">
+									<div class="grid-enter">
+										<a href="">马琪雅朵（Machiatto）</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="grid-content">
+								<img src="img/coffee4.jpg" alt="">
+								<div class="grid-shade">
+									<div class="grid-enter">
+										<a href="">康宝蓝（Espresso Con Panna）</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="grid-content">
+								<img src="img/coffee5.jpg" alt="">
+								<div class="grid-shade">
+									<div class="grid-enter">
+										<a href="">拿铁咖啡（Caffè Latte）</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="grid-content">
+								<img src="img/coffee6.jpg" alt="">
+								<div class="grid-shade">
+									<div class="grid-enter">
+										<a href="">卡布奇诺（Cappuccino）</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<h3>P.S.还有各式各样的图书与杂志！就不放图了！</h3>
+			</div>
+			<script src="js/jquery-1.11.0.min.js"></script>
+			<script src="js/mouseMoving.js"></script>
+			<script>
+				$('.grid-content').mouseMove('.grid-shade')
+			</script>
+			<div id="div2" class="content">
+				<h3>产品核心</h3>
+				<p>
+					电商步步紧逼之下，实体商业已进入主题化、特色化的体验经济时代。以往百货、超市、电影院是购物中心的三大件，但这种组合已经被打破。咖啡馆+服饰、零食店+服饰等各种“百货+”的新型模式如百花齐放，争相斗艳。
+					<br>一时间，全国各大商场内原创设计师品牌以及生活类、文化创意类产品蜂拥而至，其中以方所、诚品书店、西西弗书店、言几又等为代表的主题集合书店在商业地产界掀起了一场文化空间的热潮，这类产品强大的文化体验性是电商无法撼动的，对年轻白领阶层有很强的吸引力。
+					<br>在消费市场更为成熟的日韩、欧美等国家，这种文化集合店已非常普遍，以日本为例，早已占据购物中心一半的比例，是吸引客源的主力店铺。而在中国，这股势头也在各大城市蔓延，招揽这样的人气大咖进场已经成为了商场招商人员不懈的追求。
+					<br /><strong>这种商品有情怀、重设计、高品质，并且能植入本地文化，具备独特的产品造型形式，可爱、可人、实用，有匠心精神，因此将得到市场热捧。</strong>
+				</p>
+			</div>
+			<div id="div3" class="content">
+				<h3>成功案例</h3>
+				<h4>一、言几又书店</h4>
+				<p><img src="img/yjy.jpeg" width="300px" alt="" align="left" />
+					一个新兴品牌的成长需要经过一段痛苦而漫长的时间磨砺，文化性的集合品牌由于特殊的属性更需要下尽一番功夫。就拿“言几又”来说，2006年成立于四川的成都，当时就是一家面积只有一百多平方米的民营实体书店，经过了十个年头的三次迭代升级，已经成长成为一家文化属性极强的文化集合书店。
+					<br>言几又最早扎根各种中高端的社区，把社区作为快速消费品，便捷高效传播到消费者的身边。对于这种文化业态来说，不是刚需业态，顾客需要进行简单的筛选和过滤，才能形成有效客流。因此，从2010年开始，言几又便开始了多次升级创新。<br>
+					众所周知，传统单纯的零售有一定的局限性，于是开始结合一些高附加值的板块，但在实施过程中发现这样的业态很多，当然，作为一家书店必须要找到与之相关联的业态，那就是文具。运营一段时间后，几个主创人员发现，即便文具的形式很多，但仍然不能带来更多的消费，于是又加入了咖啡馆。跟其他业态不同，咖啡馆可以营造一个阅读环境，附带其他饮品作为整个业态盈利的补充，至此，言几又从单一业态变成复合型的零售业态。
+					通过此次升级后，业态结构基本上满足了顾客群体对文化消费的需求，但是几个不同的业态融合在一起仍缺少核心，<strong>只有有了核心才有更大的延展空间</strong>。</p>
+				<h4>二、西西弗</h4>
+				<p>在物质发达的当下，对消费需求而言，已经到达了“社交需求、尊重需求和自我实现需求”阶段。其中，尤为重要的是“自我实现需要”，所以现代人愿意将人群属性标签化，应运而生的便是“文艺青年”、“小资”、“土豪”等。无论是商品还是场所都会迎合这种需求，给予人群标签的心理暗示。作为“文创”商业就有着易制造标签属性，与目标客群在“价值观”上形成共鸣。
+					<br>吴清友曾说过，“没有商业诚品不能活，没有文化诚品不想活。”台湾诚品书店的华丽转身，将单一的书店转化为业态复合的“诚品生活”，从此“诚品”不再是售卖图书的书店品牌，而成为一种文化生活方式的标签。无独有偶，例外服装品牌又创造了“方所”，他们给自己的定义是：“方所是一群懂生活的人喜欢聚集的场所，要为懂得文化创意生活的所有人提供中国未来可能的美学生活方式。”方所在广州太古汇的店，两年就实现了盈利。
+					<br><img src="img/xxf.jpeg" width="300px" align="right" />
+					此外，在以文化为灵魂的基础上，一部分书店也衍生出了不同业态、不同品牌。这不仅提高书店“造血”功能，还拓展书店文化长远发展空间。
+					<br>西西弗书店从1993年诞生至今，已长成一棵支系繁密的大树——经过二十多年的发展，已经拥有Park书店、矢量咖啡、“不二生活”创意空间、“7&12阅听课”儿童阅读体验空间、推石文化和《唏嘘》杂志六个子品牌。即便如此，西西弗分支子品牌的形成，也并不代表西西弗也走向了跨界的道路。
+					<br><strong>西西弗始终以文化领域为主，而这些子品牌是文化衍生品，包括创立矢量咖啡是为了建造舒适的阅读环境。</strong>西西弗未来不仅会在出版领域和设计领域里有所展示，还会深入社区举办书展。这与跨界不同领域的品牌不同，西西弗把“文化”刻在了根里。</p>
+			</div>
+			<div id="div4" class="content">
+				<h3>关于我们</h3>
+				<p>本团队...目前<strong>暂时</strong>就一个人，所以期待您的加入~</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#div1Link").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#div1").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$("#div2Link").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#div2").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$("#div3Link").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#div3").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+				$("#div4Link").click(function() {
+					$("html, body").animate({
+						scrollTop: $("#div4").offset().top
+					}, {
+						duration: 500,
+						easing: "swing"
+					});
+					return false;
+				});
+			});
+		</script>
+		<div id="footer">
+			<span><strong>&copy;2018 TonyTin.All Rights Reserved.</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><strong>隐私条款</strong></a>
+		</div>
+
+	</body>
+</html>
